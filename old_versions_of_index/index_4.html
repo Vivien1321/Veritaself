@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TherAPPist</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Oxanium', sans-serif;
+            background-color: #000000;
+            background-image: url('./assets/mirror_8.png'); /* Add your background image */
+            background-size: cover;
+            background-position: right; /* Start from the right */
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Navigation bar */
+        nav {
+            width: 100%;
+            padding: 20px;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links, .auth-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a, .auth-buttons a {
+            color: #ffffff;
+            font-weight: 100;
+            text-decoration: none;
+            font-size: 1.25rem;
+            padding: 10px 20px;
+            background-color: #000000;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover, .signup:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .login {
+            background-color: transparent;
+            border: 1px solid #ffffff;
+        }
+
+        .login:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #050505;
+            min-width: 160px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #000000;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hamburger menu for mobile */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background-color: #000;
+                padding: 20px;
+                width: 100%;
+            }
+
+            .nav-links, .auth-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links a, .auth-buttons a {
+                text-align: center;
+                width: 100%;
+            }
+
+            /* Background should move left as screen shrinks */
+            body {
+                background-position: left;
+            }
+        }
+
+        /* Main title and subtitle */
+        .hero {
+            text-align: left;
+            margin-top: 100px;
+            padding-left: 300px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 7rem;
+            font-weight: 900;
+            margin-bottom: 0px;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-weight: 100;
+            font-size: 2rem;
+            margin-bottom: 80px;
+        }
+
+        /* Onwards button */
+        .onwards-btn {
+            color: #ffffff;
+            background-color: #e375ff;
+            border: 1px solid #ffffff;
+            font-weight: 100;
+            padding: 10px 20px;
+            font-size: 1.25rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .onwards-btn:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu" id="menu">
+            <div class="nav-links">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="#">Categories</a>
+                    <div class="dropdown-content">
+                        <a href="./public/career.html">Career</a>
+                        <a href="./public/finances.html">Finances</a>
+                        <a href="./public/future_aspirations.html">Future Aspirations</a>
+                        <a href="./public/health_and_wellness.html">Health and Wellness</a>
+                        <a href="./public/mental_health.html">Mental Health</a>
+                        <a href="./public/personal_growth.html">Personal Growth</a>
+                        <a href="./public/relationships.html">Relationships</a>
+                        <a href="./public/values_and_beliefs.html">Values and Beliefs</a>
+                    </div>
+                </div>
+                <a href="#">Pricing</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="#" class="signup">Sign Up</a>
+                <a href="#" class="login">Log In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section with title and subtitle -->
+    <div class="hero">
+        <h1>A JOURNEY TO <br/> YOURSELF</h1>
+        <h2>Self reflection questions</h2>
+        <a href="#" class="onwards-btn">Onwards</a>
+    </div>
+
+    <script>
+        // Script to toggle menu visibility on mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
